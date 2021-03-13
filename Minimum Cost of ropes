@@ -1,0 +1,16 @@
+class Solution{
+    public:
+        long long minCost(long long arr[], long long n) {
+     priority_queue<long long ,vector<long long>,greater<long long >>pq(arr,arr+n);
+     long long c=0;
+     while(pq.size()>1){long long A=pq.top();
+     pq.pop();
+     long long B=pq.top();
+     pq.pop();
+     long long newr=(A+B);
+     c+=newr;
+     pq.push(newr);
+    }
+    return c;
+    }
+};
