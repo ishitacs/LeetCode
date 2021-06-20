@@ -1,0 +1,26 @@
+There are N integers given in an array arr. You have to determine if it is possible to divide them in at most K groups, such that any group does not have a single integer more than twice.
+
+Example 1:
+
+Input: N = 5, K = 2
+arr = {1, 1, 2, 5, 1}
+Output: 1
+Explaination: We can divide them in two groups in 
+following way (1, 1, 2, 5) and (1)
+
+
+Code: class Solution{
+public:
+    int isPossible(int N, int arr[], int K){
+        unordered_map<int,int>mp;
+        for(int i=0;i<N;i++)
+        {
+            mp[arr[i]]++;
+        }
+        for(auto x:mp)
+        {
+            if(x.second> (2*K))
+            return 0;
+        }
+    return 1;}
+};
