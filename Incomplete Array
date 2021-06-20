@@ -1,0 +1,17 @@
+Given an array A containing N integers.Find out how many elements should be added such that all elements between the maximum and minimum of the array is present in the array.
+
+class Solution {
+  public:
+    int countElements(int N, int A[]) {
+        int mn=INT_MAX;
+        int mx=INT_MIN;
+        unordered_set<int>s;
+        for(int i=0;i<N;i++)
+        {
+            mn=min(mn,A[i]);
+            mx=max(mx,A[i]);
+            s.insert(A[i]);
+        }
+        return (mx-mn-1)-(s.size()-2);
+    }
+};
