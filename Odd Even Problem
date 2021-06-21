@@ -1,0 +1,24 @@
+Given a string S of lowercase english characters, find out whether the summation of X and Y is even or odd, where X is the count of characters which occupy even 
+positions in englishalphabets and have positive even frequency, and Y is the count of characters which occupy odd positions in english alphabets and have positive 
+odd frequency.
+
+class Solution {
+  public:
+    string oddEven(string S) { int odd=2; int eve=0; int sum=0;
+        unordered_map<int,int>mp;
+        for(auto i:S) mp[i]++;
+        for(auto i:mp)
+        {
+            if((i.first-'a'+1)%2==0)
+            {
+                if(i.second%2==0) eve++;
+            }
+            else{
+                if(i.second%2!=0) odd++;
+            }
+        }sum=odd+eve;
+        if(sum%2==0) return "EVEN";
+        else return "ODD";
+        
+    }
+};
