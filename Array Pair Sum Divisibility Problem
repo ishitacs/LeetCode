@@ -1,0 +1,14 @@
+class solution{
+public:
+    bool canPair(vector<int> nums, int k) {
+        unordered_map<int,int>m;
+        for(auto a:nums){
+            m[a%k]++;
+        }
+        if(m[0]%2==1) return false;
+        for(int i=1;i<k;i++)
+        {
+            if(m[i]!=m[k-i]) return false;
+        } return true;
+    }
+    };
