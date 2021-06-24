@@ -1,0 +1,12 @@
+class Solution
+{
+    public:
+    Node *compute(Node *h)
+    {
+        if(h==NULL) return NULL;
+        h->next=compute(h->next);
+        if(h->next!=NULL && (h->data)<(h->next->data)) return h->next;
+        else return h;
+    }
+    
+};
