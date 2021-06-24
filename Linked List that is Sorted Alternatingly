@@ -1,0 +1,16 @@
+Given a Linked list of size N, the list is in alternating ascending and descending orders. Sort the given linked list in non-decreasing order.
+
+void sort(Node **head)
+{ vector<int> v;
+Node *t=*head;
+while(t){
+    v.push_back(t->data);
+    t=t->next;
+}
+sort(v.begin(),v.end());
+t=*head;
+for(int i=0;i<v.size();i++)
+{
+    t->data=v[i];
+    t=t->next;
+}
